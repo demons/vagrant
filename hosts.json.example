@@ -1,0 +1,21 @@
+[
+  {
+    "name": "kuber",
+    "box": "bento/ubuntu-22.04",
+    "ip": "192.168.1.110",
+    "cpus": "4",
+    "memory": 4096,
+    "scripts": ["hello.sh"],
+    "public": [
+      "~/vagrant/id_ed25519.pub",
+      "~/vagrant/pub_keys"
+    ],
+    "private": ["~/vagrant/id_ed25519"],
+    "data": [
+      {
+        "from": "./data",
+        "to": "/home/vagrant/data"
+      }
+    ]
+  }
+]

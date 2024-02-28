@@ -1,0 +1,6 @@
+.vagrant/
+data/
+scripts/*
+!scripts/.gitkeep
+
+hosts.json
