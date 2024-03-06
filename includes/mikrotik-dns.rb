@@ -1,5 +1,5 @@
 def updateDns(host, record)
-  host.trigger.after :up do |trigger|
+  host.trigger.before :up do |trigger|
     trigger.info = "Up trigger"
     trigger.ruby do
       print `ssh \
