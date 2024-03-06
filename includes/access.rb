@@ -7,6 +7,7 @@ def createPublicKeys(host, record)
     home_dir = "/home/vagrant"
     temp_dest = "#{home_dir}/#{fileName}"
     authorized_keys = "#{home_dir}/.ssh/authorized_keys"
+    root_authorized_keys = "/root/.ssh/authorized_keys"
 
     if !File.exist? source
       puts "Файл #{source} не найден".bold.red
@@ -20,6 +21,7 @@ def createPublicKeys(host, record)
 
     # Запуск скриптов в виртуальной машине
     host.vm.provision "shell", inline: "cat #{temp_dest} >> #{authorized_keys}"
+    host.vm.provision "shell", inline: "cat #{temp_dest} >> #{root_authorized_keys}"
     host.vm.provision "shell", inline: "rm -rf #{temp_dest}"
   end
 end
