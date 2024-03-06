@@ -5,7 +5,7 @@
     "ip": "192.168.1.110",
     "cpus": "4",
     "memory": 4096,
-    "scripts": ["hello.sh"],
+    "user_scripts": [],
     "public": [
       "~/vagrant/id_ed25519.pub",
       "~/vagrant/pub_keys"
