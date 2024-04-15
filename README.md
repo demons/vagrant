@@ -20,8 +20,26 @@ vagrant halt
 
 ## Изменение размера диска
 Чтобы увеличить размер диска, нужно установить плагин для vagrant:
+
 ```bash
 vagrant plugin install vagrant-disksize
+```
+
+Расширение lvm на весь физический диск:
+https://habr.com/ru/articles/649703/
+
+```bash
+sudo su -
+# lvs
+lsblk -l
+parted > p
+resizepart 3 > 100% > q
+pvresize /dev/sda3
+pvs
+lvresize --resizefs --size +36g /dev/ubuntu-vg/ubuntu-lv
+
+# У этого способа не меняется размер файловой системы
+# lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv
 ```
 
 ## Синтаксис файла hosts.json
