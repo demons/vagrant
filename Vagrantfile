@@ -20,6 +20,10 @@ Vagrant.configure("2") do |config|
         vb.memory = record["memory"] || 1024
       end
 
+      if record["disk"]
+        host.disksize.size = record["disk"]
+      end
+
       host.vm.network "public_network", ip: record["ip"]
 
       # Добавит dns-запись, при создании vm

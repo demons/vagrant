@@ -5,6 +5,7 @@
     "ip": "192.168.1.110",
     "cpus": "4",
     "memory": 4096,
+    "disk": "100GB",
     "sudo_scripts": [],
     "user_scripts": [],
     "public": [

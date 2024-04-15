@@ -18,6 +18,12 @@ vagrant destroy -f vm_name
 vagrant halt
 ```
 
+## Изменение размера диска
+Чтобы увеличить размер диска, нужно установить плагин для vagrant:
+```bash
+vagrant plugin install vagrant-disksize
+```
+
 ## Синтаксис файла hosts.json
 ```bash
 [
@@ -27,6 +33,7 @@ vagrant halt
     "ip": "192.168.1.110",
     "cpus": "4",
     "memory": 4096,
+    "disk": "100GB",
     "scripts": ["hello.sh"], # Список скриптов, который будут выполнены на виртуальной машине
     "public": [ # Публичные ключи, которые будут добавлены в /home/vagrant/.ssh/authorized_keys
       "~/vagrant/id_ed25519.pub",
