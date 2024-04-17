@@ -1,9 +1,11 @@
 # Автоматизированный vagrant
 
 ## Краткое описание
+
 Универсальный проект для запуска нескольких виртуальных машин с помощью Vagrant. Конфигурации виртуальных машин прописываются в файле `hosts.json`.
 
 ## Запуск проекта
+
 ```bash
 # Запуск виртуальных машин
 vagrant up
@@ -19,6 +21,7 @@ vagrant halt
 ```
 
 ## Изменение размера диска
+
 Чтобы увеличить размер диска, нужно установить плагин для vagrant:
 
 ```bash
@@ -36,13 +39,26 @@ parted > p
 resizepart 3 > 100% > q
 pvresize /dev/sda3
 pvs
-lvresize --resizefs --size +36g /dev/ubuntu-vg/ubuntu-lv
+lvresize --resizefs --size +87g /dev/ubuntu-vg/ubuntu-lv
 
 # У этого способа не меняется размер файловой системы
 # lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv
 ```
 
+## Установка kubespray
+
+```bash
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml
+```
+
+```bash
+mkdir /home/vagrant/.kube && \
+scp root@kube1.lan:/etc/kubernetes/admin.conf /home/vagrant/.kube/config && \
+sudo chown $(id -u):$(id -g) /home/vagrant/.kube/config
+```
+
 ## Синтаксис файла hosts.json
+
 ```bash
 [
   {
