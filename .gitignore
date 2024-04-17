@@ -1,6 +1,8 @@
 .vagrant/
 data/
-scripts/*
-!scripts/.gitkeep
+sudo_scripts/*
+!sudo_scripts/.gitkeep
+user_scripts/*
+!user_scripts/.gitkeep
 
 hosts.json
