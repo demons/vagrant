@@ -54,7 +54,8 @@ ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root 
 ```bash
 mkdir /home/vagrant/.kube && \
 scp root@kube1.lan:/etc/kubernetes/admin.conf /home/vagrant/.kube/config && \
-sudo chown $(id -u):$(id -g) /home/vagrant/.kube/config
+sudo chown $(id -u):$(id -g) /home/vagrant/.kube/config && \
+sed -i 's/127.0.0.1/192.168.1.201/g' /home/vagrant/.kube/config
 ```
 
 ## Синтаксис файла hosts.json
